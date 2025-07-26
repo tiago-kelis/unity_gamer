@@ -16,13 +16,12 @@ public class Move_Tag : MonoBehaviour
     void Update()
     {
 
-        if (this.gameObject.CompareTag("bola"))
-        {
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                bola.AddForce(new Vector2(0, force * Time.deltaTime), ForceMode2D.Impulse);
-            }
-        }
         
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            bola.AddForce(new Vector2(0, force * Time.deltaTime), ForceMode2D.Impulse);
+        }
+
     }
 }
