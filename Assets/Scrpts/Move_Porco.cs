@@ -5,6 +5,8 @@ public class Move_Porco : MonoBehaviour
 
     public float velocity = 2.5f;
     public int moedas = 0;
+    public GameObject efeitoCoin;
+   
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,22 +19,24 @@ public class Move_Porco : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(new Vector2(velocity * Time.deltaTime, 0));
+            transform.Translate(new Vector2(velocity * Time.deltaTime, 0));          
+          
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(new Vector2(-velocity * Time.deltaTime, 0));
+            transform.Translate(new Vector2(-velocity * Time.deltaTime, 0));           
         }
 
         print(moedas);
         
     }
 
-     void OnTriggerEnter2D(Collider2D moeda)
+    void OnTriggerEnter2D(Collider2D moeda)
     {
         if (moeda.gameObject.CompareTag("moedas"))
         {
+           Instantiate(efeitoCoin, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z), Quaternion.identity);
             moedas++;
             Destroy(moeda.gameObject);
         }
