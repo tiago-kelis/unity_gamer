@@ -21,7 +21,6 @@ public class Move_Porco : MonoBehaviour
     void Update()
     {
 
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             porco.AddForce(new Vector2(0, force * Time.deltaTime), ForceMode2D.Impulse);
